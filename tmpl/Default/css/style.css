@@ -1,0 +1,58 @@
+/**
+ * @version		1.0
+ * @package		nuContent Lite
+ * @author		Nuevvo - http://nuevvo.com
+ * @copyright	Copyright (c) 2010 - 2013 Nuevvo Webware Ltd. All rights reserved.
+ * @license		http://nuevvo.com/license
+ */
+
+div.nuContentItemsBlock ul li div.moduleItemIntrotext {
+    display: block;
+    padding: 4px 0;
+    line-height: 120%;
+}
+
+div.nuContentItemsBlock ul li div.moduleItemIntrotext a.moduleItemImage img {
+    float: right;
+    margin: 2px 0 4px 4px;
+    padding: 0;
+    border: 2px solid #ddd;
+}
+
+div.moduleItemExtraFields ul li span.moduleItemExtraFieldsLabel {
+    display: block;
+    float: left;
+    font-weight: bold;
+    margin: 0 4px 0 0;
+    width: 30%;
+}
+
+div.nuContentItemsBlock ul li div.moduleItemTags a {
+    padding: 0 2px;
+}
+
+div.nuContentItemsBlock ul li a.moduleItemComments {
+    border-right: 1px solid #ccc;
+    padding: 0 4px 0 0;
+    margin: 0 8px 0 0;
+}
+
+div.nuContentItemsBlock ul li span.moduleItemHits {
+    border-right: 1px solid #ccc;
+    padding: 0 4px 0 0;
+    margin: 0 8px 0 0;
+}
+
+div.nuContentAuthorsListBlock ul li a.abAuthorLatestItem {
+    display: block;
+    clear: both;
+}
+
+.nuContentAvatar img {
+    display: block;
+    float: left;
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 2px;
+    margin: 2px 4px 4px 0;
+}

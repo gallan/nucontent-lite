@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="2.5" client="site" method="upgrade">
+    <name>mod_nucontent_lite</name>
+    <author>Nuevvo</author>
+    <creationDate>August 2nd, 2013</creationDate>
+    <copyright>Copyright (c) 2010 - 2013 Nuevvo Webware Ltd. All rights reserved.</copyright>
+    <authorEmail>contact@nuevvo.com</authorEmail>
+    <authorUrl>http://nuevvo.com</authorUrl>
+    <license>http://nuevvo.com/license</license>
+    <version>1.0</version>
+    <description>MOD_NUCONTENT_LITE_DESCRIPTION</description>
+    <files>
+        <filename module="mod_nucontent_lite">mod_nucontent_lite.php</filename>
+        <filename>mod_nucontent_lite.xml</filename>
+        <filename>helper.php</filename>
+        <folder>includes</folder>
+        <folder>tmpl</folder>
+    </files>
+	<languages>
+		<language tag="en-GB">en-GB.mod_nucontent_lite.ini</language>
+		<language tag="en-GB">en-GB.mod_nucontent_lite.sys.ini</language>
+	</languages>
+    <config>
+        <fields name="params">
+            <fieldset name="basic" addfieldpath="modules/mod_nucontent_lite/includes/fields/">
+                <field name="moduleclass_sfx" type="text" default="" label="NUCONTENT_MODULE_CLASS_SUFFIX" description="NUCONTENT_MODULE_CLASS_SUFFIX_DESCRIPTION"/>
+                <field name="getTemplate" type="NuContentModuleTemplate" modulename="mod_nucontent_lite" default="Default" label="NUCONTENT_SELECT_SUBTEMPLATE" description="NUCONTENT_THIS_MODULE_UTILIZES_ONTHEFLY_MVC_TEMPLATE_OVERRIDES_WHAT_THIS_MEANS_IS_THAT_YOU_CAN_CREATE_A_NEW_SUBTEMPLATE_FOLDER_FOR_THIS_MODULE_WITHIN_YOUR_JOOMLA_TEMPLATES_HTMLMOD_NUCONTENT_CONTENT_FOLDER_THE_MODULE_WILL_THEN_PICKUP_THE_NEW_SUBTEMPLATE_AUTOMAGICALLY_WITHOUT_YOU_EDITING_ANY_XML_FILE_OR_DOING_ANY_OTHER_NONDESIGNER_WORK"/>
+                <field name="source" type="list" default="filter" label="NUCONTENT_SOURCE" description="">
+                    <option value="filter">NUCONTENT_RETRIEVE_ITEMS_FROM_CATEGORIES</option>
+                    <option value="specific">NUCONTENT_SELECT_SPECIFIC_ITEMS</option>
+                </field>
+                <field name="" type="NuContentHeader" default="NUCONTENT_RETRIEVE_ITEMS_FROM_CATEGORIES" label="" description=""/>
+                <field name="category_id" type="category" extension="com_content" multiple="true" size="10" default="" label="NUCONTENT_SELECT_ONE_OR_MORE_CATEGORIES" description="NUCONTENT_SELECT_ONE_ORE_MORE_CATEGORIES_FOR_WHICH_YOU_WANT_TO_FILTER_AN_ITEMS_LIST_SELECT_NONE_TO_FETCH_ITEMS_FROM_ALL_CATEGORIES">
+                    <option value="">JOPTION_ALL_CATEGORIES</option>
+                </field>
+                <field name="getChildren" type="radio" default="0" label="NUCONTENT_FETCH_ITEMS_FROM_CHILDREN_CATEGORIES" description="">
+                    <option value="0">NUCONTENT_NO</option>
+                    <option value="1">NUCONTENT_YES</option>
+                </field>
+                <field name="itemCount" type="text" size="4" default="5" label="NUCONTENT_ITEM_COUNT" description=""/>
+                <field name="itemsOrdering" type="list" default="" label="NUCONTENT_ITEM_ORDERING" description="">
+                    <option value="">NUCONTENT_DEFAULT</option>
+                    <option value="date">NUCONTENT_OLDEST_FIRST</option>
+                    <option value="rdate">NUCONTENT_MOST_RECENT_FIRST</option>
+                    <option value="alpha">NUCONTENT_TITLE_ALPHABETICAL</option>
+                    <option value="ralpha">NUCONTENT_TITLE_REVERSEALPHABETICAL</option>
+                    <option value="order">NUCONTENT_ORDERING</option>
+                    <option value="rorder">NUCONTENT_ORDERING_REVERSE</option>
+                    <option value="hits">NUCONTENT_MOST_POPULAR</option>
+                    <option value="best">NUCONTENT_HIGHEST_RATED</option>
+                    <option value="modified">NUCONTENT_LATEST_MODIFIED</option>
+                    <option value="rand">NUCONTENT_RANDOM_ORDERING</option>
+                </field>
+                <field name="featuredItems" type="list" default="1" label="NUCONTENT_FEATURED_ITEMS" description="">
+                    <option value="0">NUCONTENT_HIDE</option>
+                    <option value="1">NUCONTENT_SHOW</option>
+                    <option value="2">NUCONTENT_SHOW_ONLY_FEATURED_ITEMS</option>
+                </field>
+                <field name="popularityRange" type="list" default="" label="NUCONTENT_TIME_RANGE_IF_ORDERING_IS_SET_TO_MOST_POPULAR" description="">
+                    <option value="">NUCONTENT_ALL_TIME</option>
+                    <option value="1">NUCONTENT_1_DAY</option>
+                    <option value="3">NUCONTENT_3_DAYS</option>
+                    <option value="7">NUCONTENT_1_WEEK</option>
+                    <option value="15">NUCONTENT_2_WEEKS</option>
+                    <option value="30">NUCONTENT_1_MONTH</option>
+                    <option value="180">NUCONTENT_6_MONTHS</option>
+                </field>
+                <field name="" type="NuContentHeader" default="NUCONTENT_SELECT_SPECIFIC_ITEMS" label="" description=""/>
+                <field name="items" type="NuContentItem" multiple="true" default="" label="NUCONTENT_ADD_ITEMS_SORT_WITH_DRAG_DROP" description="NUCONTENT_DRAG_ITEMS_ONE_BY_ONE_TO_REORDER_THE_LIST_CLICK_THE_REMOVE_ICON_TO_REMOVE_AN_ITEM_FROM_THE_LIST"/>
+                <field name="" type="NuContentHeader" default="NUCONTENT_ITEM_VIEW_OPTIONS_COMMON_FOR_EITHER_SOURCE" label="" description=""/>
+                <field name="itemTitle" type="radio" default="1" label="NUCONTENT_TITLE" description="">
+                    <option value="0">NUCONTENT_HIDE</option>
+                    <option value="1">NUCONTENT_SHOW</option>
+                </field>
+                <field name="itemAuthor" type="radio" default="1" label="NUCONTENT_USER_AUTHOR" description="">
+                    <option value="0">NUCONTENT_HIDE</option>
+                    <option value="1">NUCONTENT_SHOW</option>
+                </field>
+                <field name="itemAuthorAvatar" type="radio" default="1" label="NUCONTENT_USER_AVATAR" description="">
+                    <option value="0">NUCONTENT_HIDE</option>
+                    <option value="1">NUCONTENT_SHOW</option>
+                </field>
+                <field name="itemAuthorAvatarWidth" type="text" default="50" size="4" label="NUCONTENT_AUTHOR_AVATAR_WIDTH_IN_PX" description=""/>
+                <field name="itemIntroText" type="radio" default="1" label="NUCONTENT_INTROTEXT" description="">
+                    <option value="0">NUCONTENT_HIDE</option>
+                    <option value="1">NUCONTENT_SHOW</option>
+                </field>
+                <field name="itemIntroTextWordLimit" type="text" size="4" default="" label="NUCONTENT_INTROTEXT_WORD_LIMIT" description="NUCONTENT_LEAVE_BLANK_TO_DIASBLE_IF_YOU_ENABLE_THIS_OPTION_ALL_HTML_TAGS_FROM_THE_TEXT_WILL_BE_CLEANED_UP_TO_MAKE_SURE_THE_HTML_STRUCTURE_OF_THE_SITE_DOES_NOT_BRAKE"/>
+                <field name="itemImage" type="radio" default="1" label="NUCONTENT_IMAGE" description="">
+                    <option value="0">NUCONTENT_HIDE</option>
+                    <option value="1">NUCONTENT_SHOW</option>
+                </field>
+                <field name="itemImageWidth" type="text" default="" size="4" label="NUCONTENT_IMAGE_WIDTH_IN_PX" description="NUCONTENT_APPLIES_HTML_RESIZE_TO_THE_IMAGE"/>
+                <field name="itemTags" type="radio" default="1" label="NUCONTENT_TAGS" description="">
+                    <option value="0">NUCONTENT_HIDE</option>
+                    <option value="1">NUCONTENT_SHOW</option>
+                </field>
+                <field name="itemCategory" type="radio" default="1" label="NUCONTENT_CATEGORY" description="">
+                    <option value="0">NUCONTENT_HIDE</option>
+                    <option value="1">NUCONTENT_SHOW</option>
+                </field>
+                <field name="itemDateCreated" type="radio" default="1" label="NUCONTENT_CREATED_DATE_AND_TIME" description="">
+                    <option value="0">NUCONTENT_HIDE</option>
+                    <option value="1">NUCONTENT_SHOW</option>
+                </field>
+                <field name="itemHits" type="radio" default="1" label="NUCONTENT_HITS" description="">
+                    <option value="0">NUCONTENT_HIDE</option>
+                    <option value="1">NUCONTENT_SHOW</option>
+                </field>
+                <field name="itemReadMore" type="radio" default="1" label="NUCONTENT_READ_MORE_LINK" description="NUCONTENT_THIS_OPTION_IS_NOT_APPLICABLE_FOR_AN_ITEM_IN_WHICH_THE_FULLTEXT_BLOCK_IS_EMPTY">
+                    <option value="0">NUCONTENT_HIDE</option>
+                    <option value="1">NUCONTENT_SHOW</option>
+                </field>
+                <field name="" type="NuContentHeader" default="NUCONTENT_OTHER_OPTIONS" label="" description=""/>
+                <field name="itemPreText" type="textarea" default="" label="NUCONTENT_DESCRIPTION_TEXT_AT_THE_TOP_OPTIONAL" description="" cols="40" rows="4"/>
+                <field name="itemCustomLink" type="radio" default="0" label="NUCONTENT_CUSTOM_LINK_AT_THE_BOTTOM" description="">
+                    <option value="0">NUCONTENT_HIDE</option>
+                    <option value="1">NUCONTENT_SHOW</option>
+                </field>
+                <field name="itemCustomLinkURL" type="text" default="http://" label="NUCONTENT_CUSTOM_LINK_URL" description=""/><field name="itemCustomLinkTitle" type="text" default="" label="NUCONTENT_CUSTOM_LINK_TITLE" description=""/>
+            </fieldset>
+            <fieldset name="advanced">
+                <field name="JPlugins" type="radio" default="1" label="NUCONTENT_ENABLE_JOOMLA_CONTENT_PLUGINS" description="">
+                    <option value="0">NUCONTENT_NO</option>
+                    <option value="1">NUCONTENT_YES</option>
+                </field>
+                <field name="cache" type="list" default="1" label="NUCONTENT_CACHING" description="NUCONTENT_SELECT_WHETHER_TO_CACHE_THE_CONTENT_OF_THIS_MODULE">
+                    <option value="1">NUCONTENT_USE_GLOBAL</option>
+                    <option value="0">NUCONTENT_NO_CACHING</option>
+                </field>
+                <field name="cache_time" type="text" default="900" label="NUCONTENT_CACHE_TIME" description="NUCONTENT_THE_TIME_IN_SECONDS_BEFORE_THE_MODULE_IS_RECACHED"/>
+            </fieldset>
+        </fields>
+    </config>
+</extension>

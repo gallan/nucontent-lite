@@ -1,0 +1,46 @@
+/**
+ * @version		1.0
+ * @package		nuContent Lite
+ * @author		Nuevvo - http://nuevvo.com
+ * @copyright	Copyright (c) 2010 - 2013 Nuevvo Webware Ltd. All rights reserved.
+ * @license		http://nuevvo.com/license
+ */
+
+.nuContentClear {
+	clear: both;
+}
+
+ul.nuContentSortable {
+	padding: 4px 0;
+	position: relative;
+}
+
+ul.nuContentSortable .nuContentRemoveButton {
+	width: 16px;
+	height: 16px;
+	margin: 0;
+	margin-right: 4px;
+	cursor: pointer;
+	float: left;
+}
+
+ul.nuContentSortable .nuContentSortHandle {
+	cursor: move;
+}
+
+ul.nuContentSortable li {
+	margin: 4px 0 4px 0 !important;
+	line-height: 16px;
+	height: 16px;
+	list-style: none;
+}
+
+.nuContentParamHeader {
+	font-weight: bold;
+	font-size: 11px;
+	color: #fff;
+	padding: 4px;
+	margin: 4px 0;
+	background: #146295;
+	clear: both;
+}
